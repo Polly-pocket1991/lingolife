@@ -119,7 +119,6 @@ export const AddWordScreen: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<DictionaryResult | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [debugInfo, setDebugInfo] = useState<string>('');
 
   const handleSearch = async () => {
     if (!searchTerm.trim()) return;
@@ -145,7 +144,6 @@ export const AddWordScreen: React.FC = () => {
       
       const data: YoudaoResponse = await response.json();
       console.log("Youdao API response:", data);
-      setDebugInfo(JSON.stringify(data, null, 2));
       
       // Check for API errors
       if (data.errorCode !== '0') {
@@ -345,13 +343,6 @@ export const AddWordScreen: React.FC = () => {
           </div>
         )}
 
-        {/* Debug Info */}
-        {debugInfo && (
-          <div className="mt-4 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-auto max-h-64">
-            <p className="text-xs font-semibold text-gray-500 mb-2">Debug Info:</p>
-            <pre className="text-xs text-gray-700 dark:text-gray-300 whitespace-pre-wrap">{debugInfo}</pre>
-          </div>
-        )}
       </div>
     </div>
   );
