@@ -1,11 +1,8 @@
 import React from 'react';
-import { HashRouter, Routes, Route, useLocation, Outlet, Navigate } from 'react-router-dom';
-import { ProfileScreen } from './screens/ProfileScreen.tsx';
-import { AddWordScreen } from './screens/AddWordScreen.tsx';
-import { ReviewScreen } from './screens/ReviewScreen.tsx';
-import { LoginScreen } from './screens/LoginScreen.tsx';
-import { BottomNav } from './components/BottomNav.tsx';
-import { AuthProvider, useAuth } from './src/contexts/AuthContext.tsx';
+import { HashRouter, Routes, Route, useLocation, Outlet } from 'react-router-dom';
+import { ProfileScreen, AddWordScreen, ReviewScreen, LoginScreen } from './screens';
+import { BottomNav } from './components';
+import { AuthProvider, useAuth } from './src/contexts/AuthContext';
 
 const Layout: React.FC = () => {
   const location = useLocation();
